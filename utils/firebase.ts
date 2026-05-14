@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyD7ULmCQo_usWWaJrnMETFDs347VvjV0C4",
-  authDomain: "snapciti-com.firebaseapp.com",
+  authDomain: "snapciti-web.vercel.app", // authDomain: "snapciti-com.firebaseapp.com",
   projectId: "snapciti-com",
   storageBucket: "snapciti-com.firebasestorage.app",
   messagingSenderId: "951918540433",
