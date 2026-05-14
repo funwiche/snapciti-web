@@ -2,9 +2,6 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: false },
-  vite: {
-    optimizeDeps: {
-      include: ["@vue/devtools-core", "@vue/devtools-kit"],
-    },
-  },
+  modules: ["@nuxtjs/tailwindcss"],
+  components: [{ path: "~/components", pathPrefix: false, global: true }],
 });
