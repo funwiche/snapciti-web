@@ -1,4 +1,3 @@
-// https://firebase.google.com/docs/web/setup#available-libraries
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 const firebaseConfig = {
@@ -10,7 +9,5 @@ const firebaseConfig = {
   appId: "1:951918540433:web:2dbb4e29b173ec6a89b130",
   measurementId: "G-ZSY7JMPPH8",
 };
-
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const $auth = getAuth(app);
