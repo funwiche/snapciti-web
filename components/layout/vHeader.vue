@@ -8,6 +8,9 @@
         snapciti
       </nuxt-link>
       <nav class="d-start gap-2">
+        <span class="text-xs uppercase font-mono font-bold">
+          {{ auth_modal }}
+        </span>
         <button
           v-for="{ code } in locales"
           :key="code"
