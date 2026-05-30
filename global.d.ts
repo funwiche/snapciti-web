@@ -1,6 +1,9 @@
 // global.d.ts
 
 declare global {
-  interface Window {}
+  interface Window {
+    ReactNativeWebView: any;
+    gtag: (...args: any[]) => void;
+  }
 }
 export {};

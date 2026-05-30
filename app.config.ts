@@ -1,11 +1,10 @@
 export default defineAppConfig({
-  name: "Site Name",
-  title: "Site title",
-  tagline: "Site tagline",
-  desc: "Site description",
-  url: "https://example.com",
-  email: "info@example.com",
+  name: "Snapciti",
+  title: "site_title",
+  desc: "site_desc",
+  url: "https://wwww.snapciti.com",
+  email: "info@snapciti.com",
   phone: "+1 XXX XXX XXXX",
-  image: "/logo.png",
+  image: "/snapciti.webp",
   logo: "/logo.png",
 });

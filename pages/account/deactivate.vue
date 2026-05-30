@@ -1,0 +1,1 @@
+<template><section class="lg py-6"><h1>{{ tn(title) }}</h1><v-body class="lg" /></section></template><script setup lang="ts">const title="deactivate-your-account";useSeoData({title,desc:"deactivate-your-account-desc"});</script><style scoped></style>

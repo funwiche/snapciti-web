@@ -26,10 +26,10 @@
 
 <script setup lang="ts">
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+const { $auth } = useNuxtApp();
 const phone = ref("+447346143312");
 const code = ref("121212");
 const loading = ref(false);
-const user = useAuthUser();
 const success = ref(false);
 const errorCode = defineModel("error");
 const confirmationResult = ref<any>(null);
@@ -62,10 +62,8 @@ async function SendCode() {
 async function VerifyCode() {
   try {
     loading.value = true;
-    const result = await confirmationResult.value.confirm(code.value);
-    user.value = result.user;
+    await confirmationResult.value.confirm(code.value);
     success.value = false;
-    console.log("Phone authentication successful!", user.value);
   } catch (error: any) {
     errorCode.value = error.code;
     console.error("Error verifying code:", error);

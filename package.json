@@ -10,10 +10,23 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/device": "^4.0.0",
+    "@nuxtjs/i18n": "^10.4.0",
     "@nuxtjs/tailwindcss": "^6.14.0",
+    "bcrypt": "^6.0.0",
     "firebase": "^12.13.0",
+    "luxon": "^3.7.2",
+    "mongoose": "^9.6.2",
+    "nodemailer": "^8.0.7",
     "nuxt": "^4.4.4",
+    "sharp": "^0.34.5",
+    "snaputils": "^1.1.0",
     "vue": "^3.5.33",
     "vue-router": "^5.0.6"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/luxon": "^3.7.1",
+    "@types/nodemailer": "^8.0.0"
   }
 }

@@ -1,0 +1,1 @@
+<template><section class="lg py-6"><h1>{{ tn(title) }}</h1><v-body class="lg" /></section></template><script setup lang="ts">const title="find_save";useSeoData({title,desc:"find_save-desc"});</script><style scoped></style>

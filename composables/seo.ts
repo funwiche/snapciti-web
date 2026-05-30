@@ -11,20 +11,22 @@ interface SeoData {
 export const useSeoData = (data: SeoData) => {
   const route = useRoute();
   const app = useAppConfig();
+  const head = useLocaleHead();
   const href = app.url + route.fullPath;
-  const description = data.desc || app.desc;
-  const title = data.title || app.title;
+  const description = tn(data.desc || app.desc);
+  const title = tn(data.title || app.title);
   const image = app.url + (data.image || app.image);
   useHead({
+    htmlAttrs: head.value.htmlAttrs,
     title: computed(() => title),
     titleTemplate: `%s | ${app.name}`,
-    htmlAttrs: { lang: "en", dir: "ltr" },
     meta: [
       { charset: "utf-8" },
       { name: "format-detection", content: "telephone=no" },
       {
         name: "viewport",
-        content: "width=device-width, initial-scale=1, shrink-to-fit=no",
+        content:
+          "width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no",
       },
       { name: "description", content: description },
 
@@ -49,12 +51,14 @@ export const useSeoData = (data: SeoData) => {
       { rel: "image/x-icon", href: "/favicon.ico" },
       // { rel: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
       // { rel: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+      ...head.value.link?.map(({ id, ...link }) => link),
       {
         rel: "stylesheet",
         href: "https://xtremnet.vercel.app/fonts/fontawesome/css/all.min.css",
       },
     ],
     script: [
+      { src: "/js/main.js" },
       {
         type: "application/ld+json",
         innerHTML: JSON.stringify({

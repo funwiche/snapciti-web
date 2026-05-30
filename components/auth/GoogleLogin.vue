@@ -1,27 +1,35 @@
 <template>
-  <section>
-    <button @click="SIGN_IN" class="btn-primary w-full" id="sign-in-button">
-      {{ loading ? "Sending..." : "Sign in with Google" }}
-    </button>
-  </section>
+  <button
+    type="button"
+    @click="SIGN_IN"
+    class="h-14 d-start border rounded-xl w-full mb-2 p-4"
+  >
+    <v-spinner v-if="loading" />
+    <img v-else src="/google.png" class="w-6" />
+    <div class="flex-1 text-center font-bold text-sm">Sign in with Google</div>
+    <div class="size-6" />
+  </button>
 </template>
 
 <script setup lang="ts">
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-const user = useAuthUser();
 const errorCode = defineModel("error");
 const loading = ref(false);
+const { $auth } = useNuxtApp();
 
 async function SIGN_IN() {
   errorCode.value = null;
   loading.value = true;
   const provider = new GoogleAuthProvider();
   try {
-    const result = await signInWithPopup($auth, provider);
-    user.value = result.user;
+    const res = await signInWithPopup($auth, provider);
+    const body = res.user.providerData.find(
+      (el) => el.providerId == "google.com",
+    );
+    const data = await $fetch("/api/auth/google", { method: "POST", body });
+    if (data) await setCurrentUser(data.user);
   } catch (error: any) {
     errorCode.value = error.code;
-    console.error(error);
   } finally {
     loading.value = false;
   }

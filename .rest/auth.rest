@@ -1,2 +1,45 @@
-###
-GET http://localhost:3000/api/ok/ok/ok
+### CHECK USER
+GET http://localhost:3000/api/auth?email=snapdevx@gmail.com
+
+### REGISTER WITH EMAIL
+POST http://localhost:3000/api/auth/register
+
+{
+  "email": "snapdevx@gmail.com",
+  "password": "SecretPassword",
+  "name": "John Doe"
+}
+
+### LOGIN WITH EMAIL
+POST http://localhost:3000/api/auth/login
+
+{
+  "email": "snapdevx@gmail.com",
+  "password": "secret-password"
+}
+
+### 
+POST http://localhost:3000/api/auth/send-otp
+
+{
+  "email": "snapdevx@gmail.com"
+}
+
+### 
+POST http://localhost:3000/api/auth/verify-otp
+
+{
+  "email": "snapdevx@gmail.com",
+  "otp": "241093"
+}
+
+### 
+POST http://localhost:3000/api/auth/reset-password
+
+{
+  "email": "snapdevx@gmail.com",
+  "password": "secret-password"
+}
+
+### 
+POST http://localhost:3000/api/auth/logout

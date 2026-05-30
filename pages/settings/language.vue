@@ -1,0 +1,1 @@
+<template><section class="lg py-6"><h1>{{ tn(title) }}</h1><v-body class="lg" /></section></template><script setup lang="ts">const title="language";useSeoData({title,desc:"language-settings-desc"});</script><style scoped></style>
