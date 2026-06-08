@@ -6,8 +6,7 @@ import Business from "../models/Business";
 import { DateTime } from "luxon";
 
 export function returnError(error: any) {
-  if (error.code == "auth/user-not-found") return null;
-  throw createError({ message: error.code || error.message });
+  throw createError({ message: error.message || error });
 }
 function removeDiacritics(name: string): string {
   return name
